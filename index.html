@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HUA Books</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>HUA Books</h1>
+
+    <form id="insert" method="POST" action="/insert">
+      <h2>Insert New Book</h2>
+      <div class="input-container">
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" />
+        <div id="authorError" class="error-message"></div>
+      </div>
+
+      <div class="input-container">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" />
+        <div id="titleError" class="error-message"></div>
+      </div>
+
+      <label for="genre">Genre:</label>
+      <select id="genre" name="genre">
+        <option value="Science fiction">Science fiction</option>
+        <option value="Satire">Satire</option>
+        <option value="Drama">Drama</option>
+        <option value="Action and Adventure">Action and Adventure</option>
+        <option value="Romance">Romance</option>
+        <option value="Mystery">Mystery</option>
+        <option value="Horror">Horror</option>
+      </select>
+
+      <div class="input-container">
+        <label for="price">Price:</label>
+        <input
+          type="text"
+          id="price"
+          name="price"
+          pattern="[0-9]+(\.[0-9]{1,2})?"
+          title="Price must be a positive number!"
+        />
+
+        <div id="priceError" class="error-message"></div>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <form id="search-form">
+      <h2>Search For Book</h2>
+      <label for="search">Key-Word:</label>
+      <input type="text" id="search" name="search" /><br />
+      <div id="searchError" class="error-message"></div>
+      <button type="submit">Search</button>
+      <button id="display-all-button">Display All Books</button>
+    </form>
+
+    <div id="popupContainer" class="popup">
+      <div class="popup-content">
+        <span id="popupClose" class="popup-close" onclick="hidePopup();"
+          >&times;</span
+        >
+        <div id="popupContent">
+          <span class="popup-icon"><i class="fas fa-check-circle"></i></span>
+          <p id="popupText">Submitted Successfully</p>
+        </div>
+      </div>
+    </div>
+    <div id="errorContainer" class="error-container"></div>
+
+    <div id="searchPopupContainer" class="popup">
+      <div class="searchPopupContent">
+        <div id="searchPopupInnerContent">
+          <h2>Search Results</h2>
+          <div id="result"></div>
+        </div>
+        <span
+          id="searchPopupClose"
+          class="searchPopupClose"
+          onclick="hideSearchPopup();"
+        >
+          <i class="fas fa-times"></i>
+        </span>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
